@@ -1,0 +1,22 @@
+{
+  "name": "learnie",
+  "version": "1.0.0",
+  "description": "A tool that helps you organize your learning process.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "keywords": [],
+  "author": "Hanna",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "prettier": "1.18.2"
+  }
+}
