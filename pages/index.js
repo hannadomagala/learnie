@@ -1,9 +1,19 @@
-import Layout from '../components/main-layout';
+import React, { Component } from 'react';
+import Layout from '../components/layout/main-layout';
+import Stats from '../components/stats';
+import Maybe from '../components/maybe';
 
-const Index = () => (
-  <div>
-    <Layout></Layout>
-  </div>
-);
+class Index extends Component {
+  render() {
+    return (
+      <>
+        <Layout>
+          <Stats />
+          <Maybe />
+        </Layout>
+      </>
+    );
+  }
+}
 
 export default Index;

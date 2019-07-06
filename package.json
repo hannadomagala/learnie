@@ -4,7 +4,7 @@
   "description": "A tool that helps you organize your learning process.",
   "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "nodemon server/index.js",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +12,7 @@
   "author": "Hanna",
   "license": "ISC",
   "dependencies": {
+    "article-parser": "^2.4.0",
     "express": "^4.17.1",
     "next": "^8.1.0",
     "react": "^16.8.6",
