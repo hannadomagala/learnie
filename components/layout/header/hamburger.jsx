@@ -8,6 +8,10 @@ const Hamburger = styled.div`
   display: inline-block;
   position: relative;
 
+  @media (min-width: 900px) {
+    display: none;
+  }
+
   &::after,
   &::before {
     content: '';

@@ -20,8 +20,7 @@ const GlobalStyles = createGlobalStyle`
   h2 {
     margin: 14px 0px;
     display: inline-block;
-    font-weight: 500;
-    border-bottom: 2px dotted #96ceb4;
+    font-weight: 600;
   }
 
   h3 {
@@ -32,6 +31,18 @@ const GlobalStyles = createGlobalStyle`
 const Content = styled.main`
   padding: 20px;
   margin-top: 40px;
+
+  @media (min-width: 900px) {
+    margin-left: 30%;
+  }
+
+  @media (min-width: 1050px) {
+    margin-left: 25%;
+  }
+
+  @media (min-width: 1300px) {
+    margin-left: 17%;
+  }
 `;
 
 class Layout extends Component {
