@@ -4,7 +4,7 @@ import Menu from './menu';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
-  shadowColor: 'rgba(0, 0, 0, 0.03)',
+  shadowColor: 'rgba(0, 0, 0, 0.04)',
   classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.02)',
   themeColor: '#96ceb4'
 };
@@ -68,7 +68,7 @@ class Layout extends Component {
             isOpen={this.state.isMenuOpen}
           />
           <Menu isOpen={this.state.isMenuOpen} />
-          <Content>{this.props.children}</Content>
+          <Content theme={theme}>{this.props.children}</Content>
         </>
       </ThemeProvider>
     );

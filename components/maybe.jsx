@@ -1,23 +1,20 @@
 import Card from './card';
 import SectionHeader from './section-header';
-import styled from 'styled-components';
-
-const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
+import CardsWrapper from './cards-wrapper';
 
 const Maybe = props => (
   <section>
     <SectionHeader title="Maybe today?" />
-    <Wrapper>
+    <CardsWrapper>
       <Card />
       <Card />
       <Card />
-    </Wrapper>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </CardsWrapper>
   </section>
 );
 

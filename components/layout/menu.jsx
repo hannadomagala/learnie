@@ -53,6 +53,7 @@ const Category = styled.li`
   margin: 0;
   padding: 15px;
   list-style: none;
+  font-weight: 600;
 
   &::before {
     content: '';
@@ -61,7 +62,7 @@ const Category = styled.li`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: red;
+    background: ${props => props.color};
   }
 `;
 
@@ -75,6 +76,7 @@ const Subcategory = styled.li`
   padding: 10px;
   list-style: none;
   font-size: 0.9em;
+  font-weight: 500;
 
   &:first-child {
     margin-top: 10px;
@@ -85,7 +87,7 @@ const Subcategory = styled.li`
 const Menu = props => (
   <StyledMenu isOpen={props.isOpen}>
     <CategoryList>
-      <Category>
+      <Category color={'red'}>
         JavaScript
         <SubcategoryList>
           <Subcategory>Object Oriented Programing</Subcategory>
@@ -93,7 +95,7 @@ const Menu = props => (
           <Subcategory>Various</Subcategory>
         </SubcategoryList>
       </Category>
-      <Category>
+      <Category color={'lightblue'}>
         React
         <SubcategoryList>
           <Subcategory>Hooks</Subcategory>
@@ -101,9 +103,9 @@ const Menu = props => (
           <Subcategory>Styled Components</Subcategory>
         </SubcategoryList>
       </Category>
-      <Category>CSS</Category>
-      <Category>CSS</Category>
-      <Category>CSS</Category>
+      <Category color={'yellow'}>CSS</Category>
+      <Category color={'violet'}>Interviews</Category>
+      <Category color={'pink'}>CSS</Category>
       <Category>CSS</Category>
       <Category>CSS</Category>
       <Category>CSS</Category>
