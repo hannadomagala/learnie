@@ -5,8 +5,8 @@ import SearchBar from './search-bar';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 const theme = {
-  shadowColor: 'rgba(0, 0, 0, 0.04)',
-  classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.02)',
+  shadowColor: 'rgba(0, 0, 0, 0.08)',
+  classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.03)',
   inputFocusShadow: '0px 0px 5px rgb(150, 206, 180, .15)',
   themeColor: 'rgb(150, 206, 180)'
 };

@@ -23,8 +23,8 @@ const StyledMenu = styled.nav`
   }
 
   @media (min-width: 600px) {
-    width: 50%;
-    transform: translateX(${props => (props.isOpen ? '50vw' : '100vw')});
+    width: 40%;
+    transform: translateX(${props => (props.isOpen ? '60vw' : '100vw')});
   }
 
   @media (min-width: 900px) {
