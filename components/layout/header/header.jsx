@@ -1,9 +1,10 @@
 import { Component } from 'react';
 import styled from 'styled-components';
-import SearchBar from './search-bar';
 import Hamburger from './hamburger';
 import Logo from '../../svg/Logo';
 import SearchIcon from '../../svg/search-icon';
+import SettingsIcon from '../../svg/settings-icon';
+import AddIcon from '../../svg/add-icon';
 
 // style
 const StyledHeader = styled.header`
@@ -29,10 +30,11 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const searchIconStyle = {
-  width: 'auto',
+const iconStyle = {
+  width: '20px',
   height: '20px',
-  padding: '10px'
+  padding: '10px',
+  cursor: 'pointer'
 };
 
 const logoStyle = {
@@ -43,7 +45,11 @@ const logoStyle = {
 // component
 class Header extends Component {
   handleHamburgerClick = e => {
-    this.props.onHamburgerClick(!this.props.isOpen);
+    this.props.onHamburgerClick(!this.props.isMenuOpen);
+  };
+
+  handleSearchClick = e => {
+    this.props.onSearchClick(!this.props.isSearchOpen);
   };
 
   render() {
@@ -52,13 +58,17 @@ class Header extends Component {
         <StyledHeader>
           <Logo style={logoStyle} fill={this.props.theme.themeColor} />
           <Wrapper>
-            <SearchIcon style={searchIconStyle} fill="black" />
-            {/* <SearchBar /> */}
+            <AddIcon style={iconStyle} fill="black" />
+            <SearchIcon
+              style={iconStyle}
+              fill="black"
+              onClick={this.handleSearchClick}
+            />
+            <SettingsIcon style={iconStyle} fill="black" />
             <Hamburger
               fill="black"
-              something="blah"
               onClick={this.handleHamburgerClick}
-              isOpen={this.props.isOpen}
+              isMenuOpen={this.props.isMenuOpen}
             />
           </Wrapper>
         </StyledHeader>

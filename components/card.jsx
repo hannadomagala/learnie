@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import styled from 'styled-components';
+import ArticleInfo from './article-info';
 import ExternalIcon from './svg/external-icon';
 import DoneIcon from './svg/done-icon';
 
@@ -30,35 +31,8 @@ const ImageWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   height: 170px;
-  background: url('https://miro.medium.com/max/1200/1*CFM9_VhPRrGG755enCmClw.jpeg') center center / cover no-repeat rgb(250, 250, 250);
-`;
-
-const MetaData = styled.span`
-  &.category {
-    display: block;
-    margin-bottom: 3px;
-  }
-
-  &.category::before {
-    content: '';
-    display: inline-block;
-    margin-right: 3px;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: red;
-  }
-
-  &.author {
-    color: ${props => props.theme.themeColor};
-    font-weight: 600;
-    margin-right: 3px;
-  }
-
-  &.time {
-    color: rgb(200, 200, 200);
-    font-size: 0.9em;
-  }
+  background: url('https://miro.medium.com/max/1200/1*CFM9_VhPRrGG755enCmClw.jpeg')
+    center center / cover no-repeat rgb(250, 250, 250);
 `;
 
 const Actions = styled.div`
@@ -104,9 +78,9 @@ class Card extends Component {
             The Secret to Being a Top Developer Is Building Things! Here’s a
             List of Fun Apps to Build!
           </h3>
-          <MetaData className="category">JavaScript > OOP</MetaData>
-          <MetaData className="author">Indrek Lasn</MetaData>
-          <MetaData className="time">3 min read</MetaData>
+          <ArticleInfo className="category">JavaScript > OOP</ArticleInfo>
+          <ArticleInfo className="author">Indrek Lasn</ArticleInfo>
+          <ArticleInfo className="time">3 min read</ArticleInfo>
         </header>
         <p>
           You can only become a great developer by putting the effort in.
