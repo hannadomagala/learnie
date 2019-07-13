@@ -2,8 +2,10 @@ import { Component } from 'react';
 import Header from './header/header';
 import Menu from './menu';
 import SearchBar from './search-bar';
+import AddBar from './add-bar';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
+//style
 const theme = {
   shadowColor: 'rgba(0, 0, 0, 0.08)',
   classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.03)',
@@ -47,25 +49,43 @@ const Content = styled.main`
   }
 `;
 
+//component
 class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isMenuOpen: false,
-      isSearchOpen: false
+      isSearchOpen: false,
+      isAddOpen: false
     };
   }
 
   onHamburgerClick = boolean => {
-    this.setState({ isMenuOpen: boolean, isSearchOpen: false });
+    this.setState({
+      isMenuOpen: boolean,
+      isSearchOpen: false,
+      isAddOpen: false
+    });
   };
 
   onSearchClick = boolean => {
-    this.setState({ isSearchOpen: boolean, isMenuOpen: false });
+    this.setState({
+      isSearchOpen: boolean,
+      isMenuOpen: false,
+      isAddOpen: false
+    });
+  };
+
+  onAddClick = boolean => {
+    this.setState({
+      isAddOpen: boolean,
+      isMenuOpen: false,
+      isSearchOpen: false
+    });
   };
 
   onContentClick = boolean => {
-    this.setState({ isSearchOpen: false, isMenuOpen: false });
+    this.setState({ isSearchOpen: false, isMenuOpen: false, isAddOpen: false });
   };
 
   render() {
@@ -77,11 +97,14 @@ class Layout extends Component {
             theme={theme}
             onHamburgerClick={this.onHamburgerClick}
             onSearchClick={this.onSearchClick}
+            onAddClick={this.onAddClick}
             isMenuOpen={this.state.isMenuOpen}
             isSearchOpen={this.state.isSearchOpen}
+            isAddOpen={this.state.isAddOpen}
           />
           <Menu isOpen={this.state.isMenuOpen} />
           <SearchBar isOpen={this.state.isSearchOpen} />
+          <AddBar isOpen={this.state.isAddOpen} />
           <Content theme={theme} onClick={this.onContentClick}>
             {this.props.children}
           </Content>

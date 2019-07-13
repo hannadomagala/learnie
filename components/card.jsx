@@ -70,6 +70,7 @@ class Card extends Component {
   }
 
   render() {
+    const noCategory = this.props.nocategory;
     return (
       <StyledCard>
         <ImageWrapper />
@@ -78,7 +79,11 @@ class Card extends Component {
             The Secret to Being a Top Developer Is Building Things! Here’s a
             List of Fun Apps to Build!
           </h3>
-          <ArticleInfo className="category">JavaScript > OOP</ArticleInfo>
+
+          {!noCategory && (
+            <ArticleInfo className="category">JavaScript > OOP</ArticleInfo>
+          )}
+
           <ArticleInfo className="author">Indrek Lasn</ArticleInfo>
           <ArticleInfo className="time">3 min read</ArticleInfo>
         </header>

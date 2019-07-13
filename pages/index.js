@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import Layout from '../components/layout/main-layout';
 import Stats from '../components/stats';
 import Maybe from '../components/maybe';

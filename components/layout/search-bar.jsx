@@ -76,7 +76,7 @@ const Suggestion = styled.li`
 `;
 
 // component
-class SearchForm extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -118,4 +118,4 @@ class SearchForm extends Component {
   }
 }
 
-export default SearchForm;
+export default SearchBar;

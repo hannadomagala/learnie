@@ -1,5 +1,5 @@
 const DoneIcon = props => (
-  <span onClick={props.onClick}>
+  <span onClick={props.onClick} style={props.positionicon}>
     <svg
       style={props.style}
       xmlns="http://www.w3.org/2000/svg"

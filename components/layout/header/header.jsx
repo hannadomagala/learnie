@@ -52,13 +52,21 @@ class Header extends Component {
     this.props.onSearchClick(!this.props.isSearchOpen);
   };
 
+  handleAddClick = e => {
+    this.props.onAddClick(!this.props.isAddOpen);
+  };
+
   render() {
     return (
       <>
         <StyledHeader>
           <Logo style={logoStyle} fill={this.props.theme.themeColor} />
           <Wrapper>
-            <AddIcon style={iconStyle} fill="black" />
+            <AddIcon
+              style={iconStyle}
+              fill="black"
+              onClick={this.handleAddClick}
+            />
             <SearchIcon
               style={iconStyle}
               fill="black"

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-//styles
+// ***** STYLES *****
 const StyledMenu = styled.nav`
   position: fixed;
   top: 0;
@@ -13,6 +13,7 @@ const StyledMenu = styled.nav`
   transform: translateX(${props => (props.isOpen ? 0 : '100vw')});
   transition: transform 0.3s linear;
   overflow-y: scroll;
+
   &::-webkit-scrollbar {
     width: 0px;
   }
@@ -75,15 +76,15 @@ const Subcategory = styled.li`
   margin: 0;
   padding: 10px;
   list-style: none;
-  font-size: 0.9em;
   font-weight: 500;
+  line-height: 1.2em;
 
   &:first-child {
     margin-top: 10px;
   }
 `;
 
-// component
+// ***** COMPONENT *****
 const Menu = props => (
   <StyledMenu isOpen={props.isOpen}>
     <CategoryList>
