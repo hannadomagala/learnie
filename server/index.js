@@ -10,7 +10,7 @@ const handle = app.getRequestHandler();
 const PORT = process.env.PORT || 3000;
 
 // **** ROUTERS ****
-const articlesRouter = require('./routes/articles');
+const articlesRouter = require('./routes/articles/articles');
 
 // **** SERVER *****
 app
@@ -22,7 +22,7 @@ app
     server.use(bodyParser.urlencoded({ extended: true }));
 
     // **** ENDPOINTS ****
-    server.use('/api/categories', articlesRouter);
+    server.use('/api/articles', articlesRouter);
 
     // **** NEXT HANDLER ****
     server.get('*', (req, res) => {
