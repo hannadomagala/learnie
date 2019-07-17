@@ -10,7 +10,8 @@ const handle = app.getRequestHandler();
 const PORT = process.env.PORT || 3000;
 
 // **** ROUTERS ****
-const articlesRouter = require('./routes/articles/articles');
+const articlesRouter = require('./routes/articles');
+const categoriesRouter = require('./routes/categories');
 
 // **** SERVER *****
 app
@@ -23,6 +24,7 @@ app
 
     // **** ENDPOINTS ****
     server.use('/api/articles', articlesRouter);
+    server.use('/api/categories', categoriesRouter);
 
     // **** NEXT HANDLER ****
     server.get('*', (req, res) => {
