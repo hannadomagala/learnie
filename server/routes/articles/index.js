@@ -4,9 +4,9 @@ const router = express.Router();
 const Article = require('../../models/article');
 
 // **** CONTROLLERS ****
-const getAllArticles = require('./controllers/getAllArticles');
-const parseArticle = require('./controllers/parseArticle');
-const createArticle = require('./controllers/createArticle');
+const getAllArticles = require('./helpers/getAllArticles');
+const parseArticle = require('./helpers/parseArticle');
+const createArticle = require('./helpers/createArticle');
 
 // **** CRUD FOR ARTICLES *****
 router.get('/', async (req, res) => {
@@ -42,7 +42,7 @@ router.post('/', async (req, res) => {
 
   // getting url from request and parse the article
   const { url: articleUrl, user, category, subcategory } = req.body;
-  articleData = await parseArticle(articleUrl);
+  const articleData = await parseArticle(articleUrl);
 
   // if there were problems with parsing URL, do not save it and send 400 response
   if (!articleData) {
@@ -57,8 +57,8 @@ router.post('/', async (req, res) => {
     subcategory: subcategory
   };
 
-  createArticle(article);
-  res.status(200).send(article);
+  const savedArticle = await createArticle(article);
+  res.status(200).send(savedArticle);
 });
 
 router.delete('/', async (req, res) => {

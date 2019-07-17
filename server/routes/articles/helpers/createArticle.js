@@ -5,7 +5,7 @@ const createArticle = async articleData => {
 
   try {
     const result = await article.save();
-    console.log(result);
+    return result;
   } catch (err) {
     console.log(err.message);
   }
