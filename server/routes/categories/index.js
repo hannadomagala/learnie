@@ -6,6 +6,8 @@ const Category = require('../../models/category');
 // **** CONTROLLERS ****
 const createCategory = require('./helpers/createCategory');
 const getAllCategories = require('./helpers/getAllCategories');
+const addSubcategory = require('./helpers/addSubcategory');
+const updateCategory = require('./helpers/updateCategory');
 
 // **** CRUD FOR CATEGORIES *****
 router.get('/', async (req, res) => {
@@ -31,6 +33,15 @@ router.post('/', async (req, res) => {
     color: Joi.string()
       .min(1)
       .max(25),
+    subcategory: Joi.object().keys({
+      name: Joi.string()
+        .min(1)
+        .max(25),
+      alias: Joi.string()
+        .min(1)
+        .max(25)
+        .lowercase()
+    }),
     userID: Joi.string().min(1)
   };
 
@@ -58,7 +69,66 @@ router.delete('/', async (req, res) => {
   }
 });
 
-// TODO:
-// UPDATE
+router.put('/', async (req, res) => {
+  // TODO:
+  // update subcategories
+
+  // validation of users input
+  const schema = {
+    categoryID: Joi.string()
+      .min(1)
+      .max(25),
+    name: Joi.string()
+      .min(1)
+      .max(25),
+    alias: Joi.string()
+      .min(1)
+      .max(25)
+      .lowercase(),
+    color: Joi.string()
+      .min(1)
+      .max(25),
+    subcategory: Joi.object().keys({
+      name: Joi.string()
+        .min(1)
+        .max(25),
+      alias: Joi.string()
+        .min(1)
+        .max(25)
+        .lowercase()
+    })
+  };
+
+  const result = Joi.validate(req.body, schema);
+
+  // if there were problems with request send 400 response
+  if (result.error) {
+    res.status(400).send(result.error);
+    return;
+  }
+
+  const { categoryID, subcategory, name, alias, color } = req.body;
+
+  try {
+    let message;
+
+    if (subcategory) {
+      // if subcategory was sent with request then add it
+      message = await addSubcategory(categoryID, subcategory);
+    }
+
+    if (name || alias || color) {
+      // if name, alias or color was sent with request then update
+      message = await updateCategory(categoryID, name, alias, color);
+    }
+
+    if (!subcategory && !name && !alias && !color) {
+      throw Error('There is nothing to update.');
+    }
+    res.send(message);
+  } catch (err) {
+    res.status(400).send(err.message || 'There is no category with given ID.');
+  }
+});
 
 module.exports = router;
