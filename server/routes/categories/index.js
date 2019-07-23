@@ -13,7 +13,7 @@ const updateCategory = require('./helpers/updateCategory');
 router.get('/', async (req, res) => {
   const categories = await getAllCategories();
 
-  if (!categories) {
+  if (categories == false) {
     res.status(404).send('Sorry, but no categories available!');
     return;
   }
@@ -36,10 +36,10 @@ router.post('/', async (req, res) => {
     subcategory: Joi.object().keys({
       name: Joi.string()
         .min(1)
-        .max(25),
+        .max(35),
       alias: Joi.string()
         .min(1)
-        .max(25)
+        .max(35)
         .lowercase()
     }),
     userID: Joi.string().min(1)

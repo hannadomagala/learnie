@@ -10,8 +10,8 @@ const articleSchema = mongoose.Schema({
   author: { type: String },
   duration: Number,
   source: String,
-  category: { type: String, required: true },
-  subcategory: { type: String, required: true },
+  category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
+  subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Subcategory' },
   userID: { type: String, required: true },
   checked: { type: Boolean, default: false }
 });

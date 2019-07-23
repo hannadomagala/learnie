@@ -26,10 +26,10 @@ router.post('/', async (req, res) => {
     user: Joi.string(),
     category: Joi.string()
       .min(2)
-      .max(20),
+      .max(25),
     subcategory: Joi.string()
       .min(2)
-      .max(20)
+      .max(25)
   };
 
   const result = Joi.validate(req.body, schema);
