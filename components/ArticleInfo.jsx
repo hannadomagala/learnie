@@ -24,6 +24,7 @@ const ArticleInfo = styled.span`
   }
 
   &.time {
+    padding: 3px;
     color: rgb(200, 200, 200);
     font-size: 0.9em;
   }

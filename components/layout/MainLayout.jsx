@@ -1,8 +1,8 @@
 import { Component } from 'react';
-import Header from './header/header';
-import Menu from './menu';
-import SearchBar from './search-bar';
-import AddBar from './add-bar';
+import Header from './Header/Header';
+import Menu from './Menu/Menu';
+import SearchBar from './SearchBar/SearchBar';
+import AddBar from './AddBar/AddBar';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
 //style

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import styled from 'styled-components';
-import Hamburger from './hamburger';
+import Hamburger from './Hamburger';
 import Logo from '../../svg/Logo';
 import SearchIcon from '../../svg/search-icon';
 import SettingsIcon from '../../svg/settings-icon';
