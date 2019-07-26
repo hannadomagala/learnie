@@ -79,7 +79,7 @@ function (_Component) {
           description = _this$props.description,
           image = _this$props.image;
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_CardLayout__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_ImageWrapper__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        url: image
+        url: image || '../../static/article-placeholder.jpg'
       }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_9__["default"], {
         nocategory: nocategory,
         title: title,
@@ -106,4 +106,4 @@ function (_Component) {
 /***/ })
 
 })
-//# sourceMappingURL=index.js.c65d8e51bc187f65c29a.hot-update.js.map
+//# sourceMappingURL=index.js.d2df7288bff6c65a2608.hot-update.js.map

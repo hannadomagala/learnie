@@ -41,7 +41,7 @@ class Card extends Component {
 
     return (
       <CardLayout>
-        <ImageWrapper url={image} />
+        <ImageWrapper url={image || '../../static/article-placeholder.jpg'} />
         <Header
           nocategory={nocategory}
           title={title}

@@ -79,7 +79,7 @@ function (_Component) {
           description = _this$props.description,
           image = _this$props.image;
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_CardLayout__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_ImageWrapper__WEBPACK_IMPORTED_MODULE_8__["default"], {
-        url: image
+        url: image || '../../static/placeholder.jpg'
       }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_9__["default"], {
         nocategory: nocategory,
         title: title,
@@ -87,7 +87,7 @@ function (_Component) {
         subcategory: subcategory,
         author: author,
         time: time
-      }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement("p", null, description), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Actions__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Action__WEBPACK_IMPORTED_MODULE_12__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_svg_done_icon__WEBPACK_IMPORTED_MODULE_14__["default"], {
+      }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Description__WEBPACK_IMPORTED_MODULE_10__["default"], null, description), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Actions__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Action__WEBPACK_IMPORTED_MODULE_12__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_svg_done_icon__WEBPACK_IMPORTED_MODULE_14__["default"], {
         style: actionIconStyle
       })), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Action__WEBPACK_IMPORTED_MODULE_12__["default"], {
         href: "https://www.atlassian.com/pl/git/tutorials/cherry-pick",
@@ -103,26 +103,7 @@ function (_Component) {
 
 /* harmony default export */ __webpack_exports__["default"] = (Card);
 
-/***/ }),
-
-/***/ "./components/Card/Description.jsx":
-/*!*****************************************!*\
-  !*** ./components/Card/Description.jsx ***!
-  \*****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-
-var Description = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p.withConfig({
-  displayName: "Description",
-  componentId: "sc-14f8jwl-0"
-})(["flex-grow:1;"]);
-/* harmony default export */ __webpack_exports__["default"] = (Description);
-
 /***/ })
 
 })
-//# sourceMappingURL=index.js.826919ae881261d63506.hot-update.js.map
+//# sourceMappingURL=index.js.39b25c9813386cc11b53.hot-update.js.map
