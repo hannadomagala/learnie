@@ -36,7 +36,8 @@ class Card extends Component {
       author,
       time,
       description,
-      image
+      image,
+      url
     } = this.props;
 
     return (
@@ -55,10 +56,7 @@ class Card extends Component {
           <Action>
             <DoneIcon style={actionIconStyle} />
           </Action>
-          <Action
-            href="https://www.atlassian.com/pl/git/tutorials/cherry-pick"
-            target="_blank"
-          >
+          <Action href={url} target="_blank">
             <ExternalIcon style={actionIconStyle} />
           </Action>
         </Actions>

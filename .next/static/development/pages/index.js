@@ -15,7 +15,9 @@ __webpack_require__.r(__webpack_exports__);
 var ArticleInfo = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].span.withConfig({
   displayName: "ArticleInfo",
   componentId: "sc-1ry26mx-0"
-})(["&.category{display:block;margin-bottom:3px;}&.category::before{content:'';display:inline-block;margin-right:3px;width:10px;height:10px;border-radius:50%;background:red;}&.author{color:", ";font-weight:600;margin-right:3px;}&.time{padding:3px;color:rgb(200,200,200);font-size:0.9em;}"], function (props) {
+})(["&.category{display:block;margin-bottom:3px;}&.category::before{content:'';display:inline-block;margin-right:3px;width:10px;height:10px;border-radius:50%;background:", ";}&.author{color:", ";font-weight:600;margin-right:3px;}&.time{padding:3px;color:rgb(200,200,200);font-size:0.9em;}"], function (props) {
+  return props.color;
+}, function (props) {
   return props.theme.themeColor;
 });
 /* harmony default export */ __webpack_exports__["default"] = (ArticleInfo);
@@ -141,7 +143,8 @@ function (_Component) {
           author = _this$props.author,
           time = _this$props.time,
           description = _this$props.description,
-          image = _this$props.image;
+          image = _this$props.image,
+          url = _this$props.url;
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_CardLayout__WEBPACK_IMPORTED_MODULE_7__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_ImageWrapper__WEBPACK_IMPORTED_MODULE_8__["default"], {
         url: image || '../../static/article-placeholder.jpg'
       }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Header__WEBPACK_IMPORTED_MODULE_9__["default"], {
@@ -154,7 +157,7 @@ function (_Component) {
       }), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Description__WEBPACK_IMPORTED_MODULE_10__["default"], null, description), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Actions__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Action__WEBPACK_IMPORTED_MODULE_12__["default"], null, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_svg_done_icon__WEBPACK_IMPORTED_MODULE_14__["default"], {
         style: actionIconStyle
       })), react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_Action__WEBPACK_IMPORTED_MODULE_12__["default"], {
-        href: "https://www.atlassian.com/pl/git/tutorials/cherry-pick",
+        href: url,
         target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_svg_external_icon__WEBPACK_IMPORTED_MODULE_13__["default"], {
         style: actionIconStyle
@@ -235,8 +238,9 @@ var StyledHeading = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3
 
 var Header = function Header(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(StyledHeading, null, props.title), !props.nocategory && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArticleInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    color: props.category.color,
     className: "category"
-  }, props.category, " > ", props.subcategory), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArticleInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }, props.category.name, " > ", props.subcategory), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArticleInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
     className: "author"
   }, props.author), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ArticleInfo__WEBPACK_IMPORTED_MODULE_2__["default"], {
     className: "time"
@@ -976,7 +980,7 @@ function _templateObject() {
 var theme = {
   shadowColor: 'rgba(0, 0, 0, 0.08)',
   classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.03)',
-  inputFocusShadow: '0px 0px 5px rgb(150, 206, 180, .15)',
+  inputFocusShadow: '0px 0px 3px rgb(150, 206, 180)',
   themeColor: 'rgb(150, 206, 180)'
 };
 var GlobalStyles = Object(styled_components__WEBPACK_IMPORTED_MODULE_11__["createGlobalStyle"])(_templateObject());
@@ -1147,7 +1151,7 @@ var SubcategoryList = Object(styled_components__WEBPACK_IMPORTED_MODULE_8__["def
   displayName: "Category__SubcategoryList",
   componentId: "lqupxu-1"
 })(["max-height:", ";transition:max-height 0.5s;overflow:hidden;"], function (props) {
-  return props.isOpen ? '100vh' : '0';
+  return props.isOpen ? '100vh' : '0vh';
 }); // **** COMPONENT ****
 
 var Category =
@@ -1177,8 +1181,6 @@ function (_Component) {
   Object(_babel_runtime_corejs2_helpers_esm_createClass__WEBPACK_IMPORTED_MODULE_1__["default"])(Category, [{
     key: "render",
     value: function render() {
-      // TODO:
-      // Add id-key to Subcategory list
       var subcategories = this.props.subcategories.map(function (subcategory) {
         return react__WEBPACK_IMPORTED_MODULE_7___default.a.createElement(_Subcategory__WEBPACK_IMPORTED_MODULE_11__["default"], {
           key: subcategory._id
@@ -1214,7 +1216,7 @@ __webpack_require__.r(__webpack_exports__);
 var CategoryName = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button.withConfig({
   displayName: "CategoryName",
   componentId: "sc-1aazxwn-0"
-})(["margin:0;padding:10px;background:none;text-align:left;width:100%;border:none;outline:none;&::before{content:'';display:inline-block;margin-right:7px;width:10px;height:10px;border-radius:50%;background:", ";}"], function (props) {
+})(["margin:0;padding:10px;background:none;text-align:left;width:100%;border:none;outline:none;cursor:pointer;&::before{content:'';display:inline-block;margin-right:7px;width:10px;height:10px;border-radius:50%;background:", ";}"], function (props) {
   return props.color;
 });
 /* harmony default export */ __webpack_exports__["default"] = (CategoryName);
@@ -1322,7 +1324,7 @@ __webpack_require__.r(__webpack_exports__);
 var Subcategory = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].li.withConfig({
   displayName: "Subcategory",
   componentId: "il6ucw-0"
-})(["margin:0;padding:10px;list-style:none;font-weight:500;line-height:1.2em;&:first-child{margin-top:10px;}"]);
+})(["margin:0;padding:10px;list-style:none;font-weight:500;line-height:1.2em;cursor:pointer;&:first-child{margin-top:10px;}"]);
 /* harmony default export */ __webpack_exports__["default"] = (Subcategory);
 
 /***/ }),
@@ -11755,16 +11757,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- //  **** CARD PROPS ****
-//  nocategory,
-//   title,
-//   category,
-//   subcategory,
-//   author,
-//   time,
-//   description,
-//   image
-// **** COMPONENT ****
+ // **** COMPONENT ****
 
 var Index =
 /*#__PURE__*/
@@ -11844,13 +11837,14 @@ function (_Component) {
       var articlesToShow = articles.map(function (article) {
         return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_Card_Card__WEBPACK_IMPORTED_MODULE_12__["default"], {
           title: article.title,
-          category: article.category.name,
+          category: article.category,
           subcategory: article.subcategory,
           author: article.source,
           time: article.duration,
           description: article.description,
           image: article.image,
-          key: article._id
+          key: article._id,
+          url: article.url
         });
       });
       return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_9___default.a.Fragment, null, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_layout_MainLayout__WEBPACK_IMPORTED_MODULE_11__["default"], null, react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_SectionHeader__WEBPACK_IMPORTED_MODULE_13__["default"], {

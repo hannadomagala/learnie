@@ -15,8 +15,8 @@ const Header = props => (
     <StyledHeading>{props.title}</StyledHeading>
 
     {!props.nocategory && (
-      <ArticleInfo className="category">
-        {props.category} > {props.subcategory}
+      <ArticleInfo color={props.category.color} className="category">
+        {props.category.name} > {props.subcategory}
       </ArticleInfo>
     )}
 

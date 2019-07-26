@@ -14,7 +14,7 @@ const ArticleInfo = styled.span`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: red;
+    background: ${props => props.color};
   }
 
   &.author {
