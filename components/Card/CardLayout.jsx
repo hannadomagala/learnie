@@ -8,6 +8,8 @@ const CardLayout = styled.article`
   padding: 20px;
   margin: 15px 5px;
   line-height: 1.25em;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 500px) {
     width: calc(50% - 10px);

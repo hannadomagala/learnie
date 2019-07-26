@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import CardLayout from './CardLayout';
 import ImageWrapper from './ImageWrapper';
 import Header from './Header';
+import Description from './Description';
 import Actions from './Actions';
 import Action from './Action';
 import ExternalIcon from '../svg/external-icon';
@@ -49,7 +50,7 @@ class Card extends Component {
           author={author}
           time={time}
         />
-        <p>{description}</p>
+        <Description>{description}</Description>
         <Actions>
           <Action>
             <DoneIcon style={actionIconStyle} />
