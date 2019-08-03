@@ -8,6 +8,7 @@ const CategoryName = styled.button`
   width: 100%;
   border: none;
   outline: none;
+  cursor: pointer;
 
   &::before {
     content: '';

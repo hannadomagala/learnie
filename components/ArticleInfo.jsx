@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-//styles
 const ArticleInfo = styled.span`
   &.category {
     display: block;

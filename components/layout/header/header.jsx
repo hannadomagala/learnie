@@ -6,7 +6,7 @@ import SearchIcon from '../../svg/search-icon';
 import SettingsIcon from '../../svg/settings-icon';
 import AddIcon from '../../svg/add-icon';
 
-// style
+// **** STYLE ****
 const StyledHeader = styled.header`
   width: 100%;
   box-sizing: border-box;
@@ -42,7 +42,7 @@ const logoStyle = {
   height: 'auto'
 };
 
-// component
+// **** COMPONENT ****
 class Header extends Component {
   handleHamburgerClick = e => {
     this.props.onHamburgerClick(!this.props.isMenuOpen);
@@ -60,18 +60,20 @@ class Header extends Component {
     return (
       <>
         <StyledHeader>
-          <Logo style={logoStyle} fill={this.props.theme.themeColor} />
+          <a href="/">
+            <Logo style={logoStyle} fill={this.props.theme.themeColor} />
+          </a>
           <Wrapper>
             <AddIcon
               style={iconStyle}
               fill="black"
               onClick={this.handleAddClick}
             />
-            <SearchIcon
+            {/* <SearchIcon
               style={iconStyle}
               fill="black"
               onClick={this.handleSearchClick}
-            />
+            /> */}
             <SettingsIcon style={iconStyle} fill="black" />
             <Hamburger
               fill="black"

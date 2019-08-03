@@ -9,6 +9,10 @@ const SubmitInput = styled.input`
   margin: 5px;
   background: white;
   outline: none;
+
+  &:focus {
+    box-shadow: ${props => props.theme.inputFocusShadow};
+  }
 `;
 
 export default SubmitInput;

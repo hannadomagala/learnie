@@ -1,15 +1,18 @@
 import { Component } from 'react';
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
+import axios from 'axios';
+
+// **** COMPONENTS IMPORTS ****
 import Header from './Header/Header';
 import Menu from './Menu/Menu';
 import SearchBar from './SearchBar/SearchBar';
 import AddBar from './AddBar/AddBar';
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 
-//style
+// **** STYLES ****
 const theme = {
   shadowColor: 'rgba(0, 0, 0, 0.08)',
   classicShadow: '3px 3px 10px rgba(0, 0, 0, 0.03)',
-  inputFocusShadow: '0px 0px 5px rgb(150, 206, 180, .15)',
+  inputFocusShadow: '0px 0px 3px rgb(150, 206, 180)',
   themeColor: 'rgb(150, 206, 180)'
 };
 
@@ -56,9 +59,15 @@ class Layout extends Component {
     this.state = {
       isMenuOpen: false,
       isSearchOpen: false,
-      isAddOpen: false
+      isAddOpen: false,
+      categories: []
     };
   }
+
+  componentDidMount = async () => {
+    const result = await axios.get('/api/categories');
+    this.setState({ categories: result.data });
+  };
 
   onHamburgerClick = boolean => {
     this.setState({
@@ -84,11 +93,21 @@ class Layout extends Component {
     });
   };
 
-  onContentClick = boolean => {
+  onContentClick = () => {
     this.setState({ isSearchOpen: false, isMenuOpen: false, isAddOpen: false });
   };
 
+  onAddFormSubmit = async () => {
+    const result = await axios.get('/api/categories');
+
+    this.setState({
+      isAddOpen: false,
+      categories: result.data
+    });
+  };
+
   render() {
+    const { categories, isMenuOpen, isSearchOpen, isAddOpen } = this.state;
     return (
       <ThemeProvider theme={theme}>
         <>
@@ -98,13 +117,17 @@ class Layout extends Component {
             onHamburgerClick={this.onHamburgerClick}
             onSearchClick={this.onSearchClick}
             onAddClick={this.onAddClick}
-            isMenuOpen={this.state.isMenuOpen}
-            isSearchOpen={this.state.isSearchOpen}
-            isAddOpen={this.state.isAddOpen}
+            isMenuOpen={isMenuOpen}
+            isSearchOpen={isSearchOpen}
+            isAddOpen={isAddOpen}
           />
-          <Menu isOpen={this.state.isMenuOpen} />
-          <SearchBar isOpen={this.state.isSearchOpen} />
-          <AddBar isOpen={this.state.isAddOpen} />
+          <Menu isOpen={isMenuOpen} categories={categories} />
+          <SearchBar isOpen={isSearchOpen} />
+          <AddBar
+            isOpen={isAddOpen}
+            categories={categories}
+            onAddFormSubmit={this.onAddFormSubmit}
+          />
           <Content theme={theme} onClick={this.onContentClick}>
             {this.props.children}
           </Content>

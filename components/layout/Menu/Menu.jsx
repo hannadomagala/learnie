@@ -1,36 +1,40 @@
 import styled from 'styled-components';
+
+// **** COMPONENTS IMPORTS****
 import List from './List';
 import Category from './Category';
 import MenuLayout from './MenuLayout';
 import Welcome from './Welcome';
 
+// **** STYLES ****
+const Name = styled.span`
+  border-bottom: 1.5px dashed ${props => props.theme.themeColor};
+  font-weight: 600;
+`;
+
 // ***** COMPONENT *****
-const Menu = props => (
-  <MenuLayout isOpen={props.isOpen}>
-    <Welcome>Hi, Hanna!</Welcome>
-    <List>
+const Menu = props => {
+  const { categories } = props;
+
+  const categoriesToShow = categories.map(category => {
+    return (
       <Category
-        color="red"
-        name="JavaScript"
-        subcategories={['Object Oriented Programming', 'Prototypes', 'Various']}
+        color={category.color}
+        name={category.name}
+        subcategories={category.subcategories}
+        key={category._id}
       />
-      <Category
-        color="lightblue"
-        name="React"
-        subcategories={['Hooks', 'State', 'Styled Components']}
-      />
-      <Category
-        color="yellow"
-        name="CSS"
-        subcategories={['Grid', 'Flexbox', 'Performance']}
-      />
-      <Category
-        color="violet"
-        name="Interview"
-        subcategories={['Questions', 'Attitude', 'Various']}
-      />
-    </List>
-  </MenuLayout>
-);
+    );
+  });
+
+  return (
+    <MenuLayout isOpen={props.isOpen}>
+      <Welcome>
+        Hi, <Name>Hanna</Name>!
+      </Welcome>
+      <List>{categoriesToShow}</List>
+    </MenuLayout>
+  );
+};
 
 export default Menu;

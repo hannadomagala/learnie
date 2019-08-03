@@ -6,6 +6,7 @@ const Subcategory = styled.li`
   list-style: none;
   font-weight: 500;
   line-height: 1.2em;
+  cursor: pointer;
 
   &:first-child {
     margin-top: 10px;

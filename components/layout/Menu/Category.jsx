@@ -14,7 +14,7 @@ const StyledCategory = styled.li`
 `;
 
 const SubcategoryList = styled(List)`
-  max-height: ${props => (props.isOpen ? '100vh' : '0')};
+  max-height: ${props => (props.isOpen ? '100vh' : '0vh')};
   transition: max-height 0.5s;
   overflow: hidden;
 `;
@@ -31,10 +31,10 @@ class Category extends Component {
   };
 
   render() {
-    // TODO:
-    // Add id-key to Subcategory list
     const subcategories = this.props.subcategories.map(subcategory => {
-      return <Subcategory>{subcategory}</Subcategory>;
+      return (
+        <Subcategory key={subcategory._id}>{subcategory.name}</Subcategory>
+      );
     });
 
     return (
