@@ -35,6 +35,7 @@
         "displayName": true,
         "preprocess": true
       }
-    ]
+    ],
+    ["@babel/plugin-proposal-class-properties"]
   ]
 }
