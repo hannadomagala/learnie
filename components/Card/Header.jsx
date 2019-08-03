@@ -10,13 +10,18 @@ const StyledHeading = styled.h3`
   line-height: 1.3em;
 `;
 
+const Arrow = styled.span`
+  color: rgb(0, 0, 0, 0.2);
+`;
+
+// **** COMPONENT ****
 const Header = props => (
   <header>
     <StyledHeading>{props.title}</StyledHeading>
 
     {!props.nocategory && (
       <ArticleInfo color={props.category.color} className="category">
-        {props.category.name} > {props.subcategory}
+        {props.category.name} <Arrow>></Arrow> {props.subcategory}
       </ArticleInfo>
     )}
 
