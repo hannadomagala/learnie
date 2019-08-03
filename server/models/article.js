@@ -11,7 +11,7 @@ const articleSchema = mongoose.Schema({
   duration: Number,
   source: String,
   category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category' },
-  subcategory: { type: mongoose.Schema.Types.ObjectId, ref: 'Subcategory' },
+  subcategory: { type: String, required: true },
   userID: { type: String, required: true },
   checked: { type: Boolean, default: false }
 });

@@ -29,7 +29,7 @@ router.post('/', async (req, res) => {
       .max(25),
     subcategory: Joi.string()
       .min(2)
-      .max(25)
+      .max(35)
   };
 
   const result = Joi.validate(req.body, schema);

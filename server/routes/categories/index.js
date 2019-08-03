@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
     res.status(404).send('Sorry, but no categories available!');
     return;
   }
-  res.send(categories);
+  res.status(200).send(categories);
 });
 
 router.post('/', async (req, res) => {
@@ -69,15 +69,12 @@ router.delete('/', async (req, res) => {
   }
 });
 
-router.put('/', async (req, res) => {
+router.put('/:id', async (req, res) => {
   // TODO:
   // update subcategories
 
   // validation of users input
   const schema = {
-    categoryID: Joi.string()
-      .min(1)
-      .max(25),
     name: Joi.string()
       .min(1)
       .max(25),
@@ -106,8 +103,8 @@ router.put('/', async (req, res) => {
     res.status(400).send(result.error);
     return;
   }
-
-  const { categoryID, subcategory, name, alias, color } = req.body;
+  const categoryID = req.params.id;
+  const { subcategory, name, alias, color } = req.body;
 
   try {
     let message;

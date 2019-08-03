@@ -5,7 +5,10 @@ const createArticle = async articleData => {
 
   try {
     const result = await article.save();
-    return result;
+    const savedArticle = await Article.findById(result._id).populate(
+      'category'
+    );
+    return savedArticle;
   } catch (err) {
     console.log(err.message);
   }
