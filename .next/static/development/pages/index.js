@@ -16351,7 +16351,7 @@ function (_Component) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/articles');
+              return axios__WEBPACK_IMPORTED_MODULE_10___default.a.get('/api/articles?random=true&number=8');
 
             case 2:
               response = _context2.sent;
@@ -16378,7 +16378,7 @@ function (_Component) {
       var articlesToShow = articles.map(function (article) {
         return react__WEBPACK_IMPORTED_MODULE_9___default.a.createElement(_components_Card_Card__WEBPACK_IMPORTED_MODULE_12__["default"], {
           title: article.title,
-          category: article.category,
+          category: article.category[0],
           subcategory: article.subcategory,
           author: article.source,
           time: article.duration,

@@ -3,12 +3,31 @@ const Joi = require('joi');
 const router = express.Router();
 const Article = require('../../models/article');
 
-// **** CONTROLLERS ****
+// **** HELPERS ****
 const getAllArticles = require('./helpers/getAllArticles');
+const getRandomArticles = require('./helpers/getRandomArticles');
 const parseArticle = require('./helpers/parseArticle');
 const createArticle = require('./helpers/createArticle');
 
 // **** CRUD FOR ARTICLES *****
+router.get('/', async (req, res) => {
+  if (req.query.random) {
+    const number = parseInt(req.query.number, 10);
+    const articles = await getRandomArticles(number);
+    res.send(articles);
+    return;
+  }
+
+  
+
+  const articles = await getAllArticles();
+  if (!articles) {
+    res.status(404).send('Sorry, but no articles available!');
+    return;
+  }
+  res.send(articles);
+});
+
 router.get('/', async (req, res) => {
   const articles = await getAllArticles();
 

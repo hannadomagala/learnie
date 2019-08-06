@@ -1,20 +1,9 @@
 import { Component } from 'react';
 import styled from 'styled-components';
-import Layout from '../components/layout/main-layout';
-import CardsWrapper from '../components/cards-wrapper';
-import Card from '../components/card';
-
-const CategoryHeader = styled.h2`
-  &::before {
-    content: '';
-    display: inline-block;
-    margin-right: 7px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: ${props => props.color};
-  }
-`;
+import Layout from '../components/layout/MainLayout';
+import CardsWrapper from '../components/CardsWrapper';
+import Card from '../components/Card/Card';
+import SectionHeader from '../components/SectionHeader';
 
 class Index extends Component {
   render() {
@@ -22,9 +11,11 @@ class Index extends Component {
       <>
         <Layout>
           <section>
-            <CategoryHeader color="red">
-              JavaScript > Object Oriented Programming
-            </CategoryHeader>
+            <SectionHeader
+              category
+              color="red"
+              title="JavaScript > Object Oriented Programming"
+            />
             <CardsWrapper>
               <Card nocategory />
               <Card nocategory />

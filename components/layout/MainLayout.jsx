@@ -83,7 +83,7 @@ class Layout extends Component {
       isMenuOpen: false,
       isAddOpen: false
     });
-  };
+  }; 
 
   onAddClick = boolean => {
     this.setState({
